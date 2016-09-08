@@ -1,0 +1,110 @@
+create table customer (
+	id int primary key auto_increment,
+	name varchar(30) not null
+	);
+
+insert customer (name) values ('SSA');
+
+create table `order` (
+	-- use a key word as a string surround it in the back tick ``
+	id int primary key auto_increment,
+	customer_id int,
+	-- ^ do we need not null (if we don't add not null then we can create an order with out creating a customer.
+	foreign key (customer_id) references customer(id)
+	);
+insert `order` (customer_id) values (1);
+insert `order` (customer_id) values (null);
+
+--select * from `order`
+	--join customer
+	--on customer.id = order.customer_id;
+
+--outer join means I want all the rows from 2 different tables but if the data doesn't match display null
+--indicate outer join as left join
+--if you have to do an outer join it's almost always going to be a left join
+
+select order.id as `OrderNbr`, 
+	customer.name as `Customer name` from `Order`
+	left join customer on customer.id = order.customer_id;
+
+--show me only the orders that don't have a customer
+select order.id as `OrderNbr`, 
+	customer.name as `Customer name` from `Order`
+	left join customer on customer.id = order.customer_id
+	where order.customer_id is null;
+
+--how to segment data example:
+--select all students where second character is an o
+-- % percent equals zero or more characters
+-- _ underscore equals one character
+select * from student where last_name like '_o%';
+select * from student where years_of_experience between 5 and 10;
+select * from student where sat >= 1000 and <=1200;
+--display data will always start with select
+select 'a string';
+select 1 + 2;
+-- add a column
+alter table student add column gpa decimal (4,2);
+alter table student add column sat int(11) not null;
+--functions (examples) to hide null value from column
+select concat(last_name,', ',first_name), ifnull(sat, 'NO SAT') from student;
+--single quotes wrap strings in sql
+select concat(last_name,', ',first_name) as 'Name', ifnull(sat, 'NO SAT') from student;
+
+select format(12345.6789, 2);
+select concat(last_name,', ',first_name) as 'Name', format(gpa,2) from student;
+--change format and column label
+select concat(last_name,', ',first_name) as 'Name', format(gpa,2) as 'GPA' from student;
+
+--trim leading and trailing spaces in a string (use in db when data 
+-- is defined as char
+select trim(' ssa ');
+select concat('[',trim(' ssa '),']');
+--ltrim for left and rtrim for right
+
+--dates
+select cast('2016-09-08 10:45:00' as datetime)
+--date arithmetic
+select date_add('1957-08-26 23:59:59', interval 1 second);
+
+--assignment quesiton answer (join matters if you are doing outer --joins versus inner joins)
+--optimizer figures out the best way to do task
+select major.description,concat(class.subject,class.section)
+	from major 
+	join major_class_relationship
+	on major.id = major_class_relationship.major_id
+	join class
+	on class.id = major_class_relationship.class_id
+	;
+
+select major.description,concat(class.subject,class.section)
+	from major 
+	join major_class_relationship
+	on major.id = major_class_relationship.major_id
+	join class
+	on class.id = major_class_relationship.class_id
+	where major.description = 'General Business'
+	;
+
+select major.description,concat(class.subject,class.section)
+	from major 
+	join major_class_relationship
+	on major.id = major_class_relationship.major_id
+	join class
+	on class.id = major_class_relationship.class_id
+	where class.subject = 'English' and class.section = 101
+	;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
