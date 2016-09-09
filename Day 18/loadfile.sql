@@ -6,41 +6,6 @@ drop table if exists major;
 drop table if exists assignment;
 drop table if exists student;
 
-create table student (
-	
-	id int primary key,
-
-	gpa decimal(4,2),
-	sat int(11),	
-	first_name varchar(30) not null,
-
-	last_name varchar(30) not null
-
-);
-
-
-insert student values(100,3.5,1000,'Eric','Ephram');
-
-insert student values(110,3.5,1500,'Greg','Gould');
-
-insert student values(120,3.4,1400,'Adam','Ant');
-
-insert student values(130,3.3,1300,'Howard','Hess');
-
-insert student values(140,3.2,1200,'Charles','Caldwell');
-
-insert student values(150,3.1,1100,'James','Joyce');
-
-insert student values(160,3.0,1000,'Doug','Dumas');
-
-insert student values(170,2.5,1120,'Kevin','Kraft');
-
-insert student values(180,2.7,1130,'Frank','Fountain');
-
-insert student values(190,2.8,1140,'Brian','Biggs');
-
-
-
 create table major(
 	id int primary key auto_increment,
 	description varchar(50) not null,
@@ -53,6 +18,42 @@ insert into major (description,score) values('Math',1300);
 insert into major (description,score) values('Engineering',1350);
 insert into major (description,score) values('Education', 900);
 insert into major (description,score) values('General Studies',500);
+
+create table student (
+	
+	id int primary key,
+
+	gpa decimal(4,2),
+	sat int(11),
+	first_name varchar(30) not null,
+	last_name varchar(30) not null,
+	major_id int,
+	foreign key (major_id)
+	  references major(id)
+	);
+
+
+insert student values(100,3.5,1000,'Eric','Ephram',null);
+
+insert student values(110,3.5,1500,'Greg','Gould',null);
+
+insert student values(120,3.4,1400,'Adam','Ant',null);
+
+insert student values(130,3.3,1300,'Howard','Hess',null);
+
+insert student values(140,3.2,1200,'Charles','Caldwell',null);
+
+insert student values(150,3.1,1100,'James','Joyce',null);
+
+insert student values(160,3.0,1000,'Doug','Dumas',null);
+
+insert student values(170,2.5,1120,'Kevin','Kraft',null);
+
+insert student values(180,2.7,1130,'Frank','Fountain',null);
+
+insert student values(190,2.8,1140,'Brian','Biggs',null);
+
+
 
 create table instructor (
 	id int primary key,
@@ -144,20 +145,22 @@ insert into assignment(id,student_id, class_id, assignment_nbr,grade) values(2,1
 insert into assignment(id,student_id, class_id, assignment_nbr,grade) values(3,120,10103,1,'A');
 insert into assignment(id,student_id, class_id, assignment_nbr,grade) values(4,100,10201,1,'C');
 
-create table major_class(
+create table major_class_relationship(
 	id int primary key auto_increment,
 	major_id int not null,
 	class_id int not null,
-	assignment_id int not null,
 	foreign key (major_id)
 	  references major(id),
 	foreign key (class_id)
-	  references class(id),
-	foreign key (assignment_id)
-	  references assignment(id)
+	  references class(id)
 	);
+INSERT major_class_relationship (major_id, class_id) VALUES(1,10101); 
+INSERT major_class_relationship (major_id, class_id) VALUES(1,10102); 
+INSERT major_class_relationship (major_id, class_id) VALUES(1,10201); 
+INSERT major_class_relationship (major_id, class_id) VALUES(1,10201); 
+INSERT major_class_relationship (major_id, class_id) VALUES(1,11202); 
 
-create table student_class(
+create table student_class_relationship(
 	id int primary key auto_increment,
 	student_id int not null,
 	class_id int not null,
@@ -166,4 +169,6 @@ create table student_class(
 	foreign key (class_id)
 	  references class(id)
 	);
+INSERT student_class_relationship (student_id, class_id) VALUES(100,12201);
+
 
