@@ -1,0 +1,27 @@
+/* a period means it's a class*/
+.orangetext{
+	color:orange;
+}
+.italics{
+	font-style:italic;
+}
+span {
+	color:red;
+	font-weight:bold;
+}
+table, tr, td {
+	border:1px solid grey;
+}
+tr {
+	border:1px solid grey;
+}
+div {
+	width:49%;
+	display: inline-block;
+	text-align: center;
+	vertical align: text-top;
+}
+/*this hashtag is for an ID. an id can only be used one time*/
+#rightdiv {
+	color:pink;
+}

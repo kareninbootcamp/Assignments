@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My First Web Page</title>
+	</head>
+
+	<body>
+	<p>Welcome to Day 21 of the SSA Developer Bootcamp. Today we are learning HTML and CSS. First let's setup our index file. The paragraph tab says that everything between these two tags is a paragraph and will be rendered on the screen as one paragraph. 
+
+I want this to be another paragraph.</p>
+	</body>
+</html>

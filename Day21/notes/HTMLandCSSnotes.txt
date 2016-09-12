@@ -1,0 +1,20 @@
+tag names are case sensitive
+opening tag <html>
+closing tag </html>
+
+default setup:
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+
+	<body>
+	</body>
+</html>
+
+keep this handy, you will use it a lot:
+div {
+	width:49%;
+	display: inline-block;
+	text-align: center;
+}
