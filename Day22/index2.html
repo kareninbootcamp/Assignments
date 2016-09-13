@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A page to just play with styles</title>
+	<link rel="stylesheet" type="text/css" href="default.css">
+	<link rel="stylesheet" type="text/css" href="thispage.css">
+	<!--Bootstrap. note-remember override - precedence, the last one defines wins-->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	</style>
+</head>
+<body>
+<h1 class="bg-success">This is heading 1 with bg success class</h1>
+<p class="h1">This is heading 1 with a class</p>
+<p class="h1 text-right">This is heading 1 with a class text right</p>
+<style> 
+	.red{color:red;}
+	#green{color:green;}
+	p span {color: orange;}
+	div div div p {color:yellow;}
+	div div p {color:blue;}
+	div p {color:purple;}
+	body p span {color:pink;}
+</style>
+
+<span class="red">This should be red</span>
+
+<span id="green">This should be green</span>
+<p><span>This should be orange</span></p>
+
+<table class="table table-striped">
+	<tr class="active"><td>First Name</td>
+	<td>Last Name</td>
+	</tr>
+	<tr><td>Penguin</td>
+	<td>Cartoon</td>
+	</tr>
+</table>
+
+	<!-- this is how you creat a comment in html -->
+	<img src="pictures/tweety.jpg">
+	<!-- this is an anchor tag, it's a link to a web pg -->
+	<a href="http://www.theironyard.com">The Iron Yard Web Site</a>
+
+	<!-- use a form tag to pass information in to a db -->	
+	<!-- form has a method and action parameter. query string -->	
+	
+	<!-- the action is pointing to another web page inside the form you pass the data -->
+	</p>
+	<form method="get" action="echoQueryString.html">
+
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" name="aName" id="aName" 
+				value="A student name"></td>
+			</tr>
+			<tr>
+				<td>Click to submit</td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>
+
+		</table>
+
+	</form>
+
+</body>
+</html>
