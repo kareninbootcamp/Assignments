@@ -1,0 +1,47 @@
+/* a period means it's a class*/
+.orangetext{
+	color:orange;
+}
+.italics{
+	font-style:italic;
+}
+span {
+	color:red;
+	font-weight:bold;
+}
+table, tr, td {
+	border:1px solid black;
+	border-collapse: collapse;
+	padding: 15px;
+	border-spacing: 5px;
+}
+/*table headings*/
+th {
+    font-style:bold;
+
+}
+#left, #right {
+	width:49%;
+	display: inline-block;
+	text-align: left;
+	vertical align: text-top;
+
+}
+#textarea {
+	column-width: 20;
+}
+.greaterthan8{
+	border: 2px solid red;
+}
+.supervisor{
+	color:red;
+}
+.student{
+	font-weight:bold;
+}
+.date{
+	font-style:italic;
+}
+#signatureline {
+	font-style:italic;
+}
