@@ -1,4 +1,4 @@
-// var token = "xoxp-63743851541-69428240131-82793741921-2b0a9c3c3dbce5e8405c6a75d01f9160";
+
 var selectedChannel;
 //var slackToken = getSlackToken();
 var messageText;
@@ -30,7 +30,7 @@ $(document).ready(function(){
     });
   });
 
-  
+
   function getChannels () {
         var leftSide = $("#left");
         var slackToken = getSlackToken();
