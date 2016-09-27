@@ -28,7 +28,7 @@ public class QueryUpdate {
 			session=factory.getCurrentSession();
 			session.beginTransaction();
 			
-			session.createQuery("update major m set m.description='Art' where s.id=10").executeUpdate();
+			session.createQuery("update major m set m.description='sewing' where m.id=11").executeUpdate();
 			System.out.println("Major updated" );
 			session.getTransaction().commit();
 			
