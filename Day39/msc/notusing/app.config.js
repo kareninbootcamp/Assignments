@@ -1,9 +1,6 @@
 angular.module("AppMod", ["ngRoute"])
-
-	.controller("AppCtrl", ['$http', '$routeParams', function($http, $routeParams) {
+	.controller("AppCtrl", ['$http', function($http) {
 		var self = this;
-		//console.log($routeParams);
-		self.id = $routeParams.studentId;
 
 		$http.get('http://localhost:8080/student')
 			.then(function(resp){
@@ -12,15 +9,7 @@ angular.module("AppMod", ["ngRoute"])
 
 			});
 
-		$http.get('http://localhost:8080/student/'+self.id)
-			.then(function(resp){
-				self.student = resp.data;
-			},function(err) {
-
-			});
-
-	}]) // end controller
-	
+	}])
 	.config(['$routeProvider', function($routeProvider) {
 
 		$routeProvider
@@ -32,17 +21,10 @@ angular.module("AppMod", ["ngRoute"])
 			controller: 'AppCtrl',
 			controllerAs: 'ctrl'
 
-		}).when('/student/:studentId', {
-			templateUrl: 'views/detail.view.html',
-			controller: 'AppCtrl',
-			controllerAs: 'ctrl'
-
 		}).when('/about', {
 			templateUrl: 'views/about.view.html'
 
 		})
 		.otherwise({redirectTo: '/'});
 
-	}]) // end config
-
-; 
+	}]); // end config

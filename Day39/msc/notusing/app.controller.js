@@ -1,4 +1,4 @@
-angular.module("AppMod")
+appMod
 
 	.controller("AppCtrl", ['$http', '$routeParams', function($http, $routeParams) {
 		var self = this;
@@ -20,6 +20,6 @@ angular.module("AppMod")
 			});
 
 	}]) // end controller
-	
+
 
 ;// end all 
