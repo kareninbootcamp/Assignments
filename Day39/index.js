@@ -20,7 +20,7 @@ angular.module("AppMod", ["ngRoute"])
 			});
 
 	}]) // end controller
-	
+
 	.config(['$routeProvider', function($routeProvider) {
 
 		$routeProvider
@@ -37,6 +37,10 @@ angular.module("AppMod", ["ngRoute"])
 			controller: 'AppCtrl',
 			controllerAs: 'ctrl'
 
+		}).when('/classes', {
+			templateUrl: 'views/classes.view.html',
+
+
 		}).when('/about', {
 			templateUrl: 'views/about.view.html'
 
@@ -45,4 +49,4 @@ angular.module("AppMod", ["ngRoute"])
 
 	}]) // end config
 
-; 
+;
